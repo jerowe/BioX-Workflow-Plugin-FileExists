@@ -85,6 +85,12 @@ size, human readable size, date created, last accessed, and last modified.
 
 Jillian Rowe E<lt>jillian.e.rowe@gmail.comE<gt>
 
+=head1 Acknowledgements
+
+This modules continuing development is supported by NYU Abu Dhabi in the Center for Genomics and Systems Biology.
+With approval from NYUAD, this information was generalized and put on bitbucket, for which
+the authors would like to express their gratitude.
+
 =head1 COPYRIGHT
 
 Copyright 2015- Jillian Rowe

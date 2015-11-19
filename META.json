@@ -1,5 +1,5 @@
 {
-   "abstract" : "Blah blah blah",
+   "abstract" : "Get metadata for files in directories processed by L<BioX::Workflow>",
    "author" : [
       "Jillian Rowe <jillian.e.rowe@gmail.com>"
    ],
@@ -37,6 +37,16 @@
       },
       "runtime" : {
          "requires" : {
+            "BioX::Workflow" : "0",
+            "File::Basename" : "0",
+            "File::Details" : "0",
+            "File::Find::Rule" : "0",
+            "File::Path" : "0",
+            "File::Spec" : "0",
+            "File::stat" : "0",
+            "Moose::Role" : "0",
+            "Number::Bytes::Human" : "0",
+            "Time::localtime" : "0",
             "perl" : "5.008005"
          }
       },

@@ -1,14 +1,27 @@
 # NAME
 
-BioX::Workflow::Plugin::FileDetails - Blah blah blah
+BioX::Workflow::Plugin::FileDetails - Get metadata for files in directories
+processed by [BioX::Workflow](https://metacpan.org/pod/BioX::Workflow)
 
 # SYNOPSIS
 
-    use BioX::Workflow::Plugin::FileDetails;
+List your plugins in your workflow.yml file
+
+    ---
+    plugins:
+        - FileDetails
+    global:
+        - indir: /home/user/gemini
+        - outdir: /home/user/gemini/gemini-wrapper
+        - file_rule: (.vcf)$|(.vcf.gz)$
+        - infile:
+    #So On and So Forth
 
 # DESCRIPTION
 
-BioX::Workflow::Plugin::FileDetails is
+BioX::Workflow::Plugin::FileDetails is a plugin for [BioX::Workflow](https://metacpan.org/pod/BioX::Workflow). It gets
+metadata for files in directories processed by [BioX::Workflow](https://metacpan.org/pod/BioX::Workflow) including MD5,
+size, human readable size, date created, last accessed, and last modified.
 
 # AUTHOR
 
