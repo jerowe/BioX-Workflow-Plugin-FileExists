@@ -3,12 +3,31 @@ package BioX::Workflow::Plugin::FileDetails;
 our $VERSION = '0.01';
 
 use Moose::Role;
+use List::Uniq ':all';
 
+has 'collect_outdirs' => (
+    traits  => ['Array'],
+    is => 'rw',
+    isa => 'ArrayRef',
+    default => sub {[]},
+    handles => {
+        add_collect_outdirs     => 'push',
+        has_collect_outdirs     => 'count',
+    },
+);
 
-after 'write_process' => sub {
+after 'process_template' => sub {
     my $self = shift;
 
-    my $cmd = "filedetails.pl --check_dir ".$self->outdir;
+    $self->add_collect_outdirs($self->outdir);
+    $self->add_collect_outdirs($self->indir);
+
+    @{$self->collect_outdirs} = uniq(@{$self->collect_outdirs}) if $self->has_collect_outdirs;
+};
+
+after 'write_pipeline' => sub {
+    my $self = shift;
+
     print <<EOF;
 
 #
@@ -16,17 +35,20 @@ after 'write_process' => sub {
 #
 
 EOF
-    print "\n";
-    print "filedetails.pl --check_dir ".$self->outdir;
-    print "\n\n";
-    print "wait\n";
+    foreach my $outdir (@{$self->collect_outdirs}){
+        my $cmd = "filedetails.pl --check_dir ".$outdir;
+        print "\n";
+        print "filedetails.pl --check_dir ".$outdir;
+        print "\n\n";
+    }
+
     print <<EOF;
 
 #
 # Ending FileDetails Plugin
 #
-
 EOF
+
 };
 
 1;
@@ -36,15 +58,28 @@ __END__
 
 =head1 NAME
 
-BioX::Workflow::Plugin::FileDetails - Blah blah blah
+BioX::Workflow::Plugin::FileDetails - Get metadata for files in directories
+processed by L<BioX::Workflow>
 
 =head1 SYNOPSIS
 
-  use BioX::Workflow::Plugin::FileDetails;
+List your plugins in your workflow.yml file
+
+    ---
+    plugins:
+        - FileDetails
+    global:
+        - indir: /home/user/gemini
+        - outdir: /home/user/gemini/gemini-wrapper
+        - file_rule: (.vcf)$|(.vcf.gz)$
+        - infile:
+    #So On and So Forth
 
 =head1 DESCRIPTION
 
-BioX::Workflow::Plugin::FileDetails is
+BioX::Workflow::Plugin::FileDetails is a plugin for L<BioX::Workflow>. It gets
+metadata for files in directories processed by L<BioX::Workflow> including MD5,
+size, human readable size, date created, last accessed, and last modified.
 
 =head1 AUTHOR
 
