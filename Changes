@@ -1,6 +1,8 @@
 Revision history for BioX-Workflow-Plugin-FileDetails
 
 {{$NEXT}}
+
+0.03  2015-11-23 10:16:34 GST
     Changing to ModuleBuild
 
 0.02  2015-11-19 12:46:29 GST

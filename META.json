@@ -24,9 +24,14 @@
       ]
    },
    "prereqs" : {
+      "build" : {
+         "requires" : {
+            "Module::Build" : "0.28"
+         }
+      },
       "configure" : {
          "requires" : {
-            "Module::Build::Tiny" : "0.034"
+            "Module::Build" : "0.28"
          }
       },
       "develop" : {
@@ -57,6 +62,17 @@
       }
    },
    "release_status" : "stable",
-   "version" : "0.02"
+   "resources" : {
+      "bugtracker" : {
+         "web" : "https://bitbucket.org/jerowe/biox-workflow-plugin-filedetails/issues"
+      },
+      "homepage" : "https://bitbucket.org/jerowe/biox-workflow-plugin-filedetails",
+      "repository" : {
+         "type" : "git",
+         "url" : "git://git@bitbucket.org:jerowe/biox-workflow-plugin-filedetails.git",
+         "web" : "https://bitbucket.org/jerowe/biox-workflow-plugin-filedetails"
+      }
+   },
+   "version" : "0.03"
 }
 
