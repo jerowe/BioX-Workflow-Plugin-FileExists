@@ -49,6 +49,7 @@
             "File::Path" : "0",
             "File::Spec" : "0",
             "File::stat" : "0",
+            "List::Uniq" : "0",
             "Moose::Role" : "0",
             "Number::Bytes::Human" : "0",
             "Time::localtime" : "0",
@@ -73,6 +74,6 @@
          "web" : "https://bitbucket.org/jerowe/biox-workflow-plugin-filedetails"
       }
    },
-   "version" : "0.03"
+   "version" : "0.04"
 }
 

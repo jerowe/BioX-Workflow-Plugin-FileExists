@@ -1,6 +1,6 @@
 package BioX::Workflow::Plugin::FileDetails;
 
-our $VERSION = '0.03';
+our $VERSION = '0.04';
 
 use Moose::Role;
 use List::Uniq ':all';
