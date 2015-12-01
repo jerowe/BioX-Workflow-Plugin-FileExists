@@ -12,6 +12,7 @@ requires "File::stat";
 requires "File::Path";
 requires "File::Basename";
 requires "Number::Bytes::Human";
+requires "List::Uniq";
 
 
 on test => sub {

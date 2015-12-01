@@ -1,6 +1,7 @@
 Revision history for BioX-Workflow-Plugin-FileDetails
 
 {{$NEXT}}
+    - Added List::Uniq to cpanfile
 
 0.03  2015-11-23 10:16:34 GST
     Changing to ModuleBuild
