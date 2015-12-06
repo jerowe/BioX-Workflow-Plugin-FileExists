@@ -1,6 +1,8 @@
 Revision history for BioX-Workflow-Plugin-FileDetails
 
 {{$NEXT}}
+
+0.05  2015-12-06 11:12:52 GST
     - Added in line count
 
 0.04  2015-12-01 11:08:42 GST
