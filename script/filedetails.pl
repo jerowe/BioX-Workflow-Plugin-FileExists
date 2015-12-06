@@ -29,6 +29,14 @@ has 'print_stdout' => (
     documentation => q(Print metadata to STDOUT. Default is yes.),
 );
 
+has 'line_count' => (
+    is => 'rw',
+    isa => 'Bool',
+    required => 0,
+    default => 1,
+    documentation => 'q(Get a line count per file)',
+);
+
 package My::App::Run;
 use My::App::Options;
 use File::Details;
@@ -59,7 +67,7 @@ foreach my $file (@files) {
 
 my $info =<<EOF;
 
-    |File Details:|$file|
+## $file
     |MD5| $hash|
     |Size (bytes)| $size|
     |Size (human)| $hsize|
@@ -67,6 +75,22 @@ my $info =<<EOF;
     |Last access   time| $actime|
     |Last modify   time| $mtime|
 EOF
+
+if($self->has_line_count){
+    my $line_count;
+    if($file =~ m/\.gz$/){
+        $line_count = `zcat $file |wc -l`
+    }
+    else{
+        $line_count = `wc -l < $file`;
+    }
+    $info .=<<EOF;
+    |Line Count| $line_count|
+
+
+EOF
+
+}
 
     $DB::single=2;
     if($self->print_stdout){

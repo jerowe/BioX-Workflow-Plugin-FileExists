@@ -1,6 +1,7 @@
 Revision history for BioX-Workflow-Plugin-FileDetails
 
 {{$NEXT}}
+    - Added in line count
 
 0.04  2015-12-01 11:08:42 GST
     - Added List::Uniq to cpanfile
