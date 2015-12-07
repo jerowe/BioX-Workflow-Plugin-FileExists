@@ -67,13 +67,15 @@ foreach my $file (@files) {
 
 my $info =<<EOF;
 
+
 ## $file
-    |MD5| $hash|
-    |Size (bytes)| $size|
-    |Size (human)| $hsize|
-    |File creation time| $ctime|
-    |Last access   time| $actime|
-    |Last modify   time| $mtime|
+
+|MD5| $hash|
+|Size (bytes)| $size|
+|Size (human)| $hsize|
+|File creation time| $ctime|
+|Last access   time| $actime|
+|Last modify   time| $mtime|
 EOF
 
 if($self->has_line_count){
@@ -85,7 +87,7 @@ if($self->has_line_count){
         $line_count = `wc -l < $file`;
     }
     $info .=<<EOF;
-    |Line Count| $line_count|
+|Line Count| $line_count|
 
 
 EOF
