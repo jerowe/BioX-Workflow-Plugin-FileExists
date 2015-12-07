@@ -1,6 +1,8 @@
 Revision history for BioX-Workflow-Plugin-FileDetails
 
 {{$NEXT}}
+
+0.06  2015-12-07 10:06:38 GST
     - Prettyified the table
 
 0.05  2015-12-06 11:12:52 GST
