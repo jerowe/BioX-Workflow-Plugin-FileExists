@@ -18,7 +18,7 @@ my %module_build_args = (
     "Jillian Rowe <jillian.e.rowe\@gmail.com>"
   ],
   "dist_name" => "BioX-Workflow-Plugin-FileDetails",
-  "dist_version" => "0.06",
+  "dist_version" => "0.07",
   "license" => "perl",
   "module_name" => "BioX::Workflow::Plugin::FileDetails",
   "recursive_test_files" => 1,
