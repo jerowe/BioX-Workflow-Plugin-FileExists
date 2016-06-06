@@ -1,7 +1,6 @@
 requires 'perl', '5.008005';
 
 # requires 'Some::Module', 'VERSION';
-requires 'Package::DeprecationManager', '0.16';
 requires 'BioX::Workflow';
 requires 'File::Details';
 requires 'Moose::Role';

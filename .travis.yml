@@ -17,6 +17,7 @@ before_install:
   - build-dist
   - cd $BUILD_DIR             # $BUILD_DIR is set by the build-dist command
 install:
+  - cpanm  --notest Package::DeprecationManager
   - cpanm --installdeps .
   - cpanm --quiet --notest --skip-satisfied Dist::Milla
   - cpan-install --coverage   # installs converage prereqs, if enabled
