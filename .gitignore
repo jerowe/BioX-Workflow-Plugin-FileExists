@@ -1,0 +1,7 @@
+/BioX-Workflow-Plugin-FileExists-*
+/.build
+/_build*
+/Build
+MYMETA.*
+!META.json
+/.prove
