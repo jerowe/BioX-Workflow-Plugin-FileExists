@@ -24,22 +24,21 @@ before 'write_process' => sub{
     my $tprocess = "";
     if($input){
         $tprocess .=<<EOF;
-[ -f "$input"  ] || \\{ echo "INPUT $input not found" ; exit 256; \\} && \\
-[ -s "$input"  ] || \\{ echo "INPUT $input is empty" ;  \\} && \\
+[ -f "$input"  ] || \\{>&2 echo "INPUT $input not found" ; exit 256; \\} && \\
+[ -s "$input"  ] || \\{>&2 echo "INPUT $input is empty";  \\} && \\
 EOF
         $tprocess .= $process;
         $process = $tprocess;
     }
     if($output){
         $tprocess =<<EOF;
-[ -f "$output"  ] || \\{ echo "OUTPUT $output not found";  \\} && \\
-[ -s "$output"  ] || \\{ echo "OUTPUT $output is empty"; \\}
+[ -f "$output"  ] || \\{>&2 echo "OUTPUT $output not found" ;  \\} && \\
+[ -s "$output"  ] || \\{>&2 echo "OUTPUT $output is empty"; \\}
 EOF
         $process .= $tprocess;
     }
     $self->process($process);
 
-    #print "Process!\n$process\n\n";
 };
 
 1;
@@ -49,15 +48,19 @@ __END__
 
 =head1 NAME
 
-BioX::Workflow::Plugin::FileExists - Blah blah blah
+BioX::Workflow::Plugin::FileExists
 
 =head1 SYNOPSIS
 
-  use BioX::Workflow::Plugin::FileExists;
+  biox-workflow.pl --plugins FileExists
 
 =head1 DESCRIPTION
 
-BioX::Workflow::Plugin::FileExists is
+BioX::Workflow::Plugin::FileExists is a plugin of BioX::Workflow that first checks that your local INPUT exists.
+If it doesn't exist it will exit with 256.
+If INPUT is empty it will give a warning.
+If OUTPUT is empty or doesn't exist it will give a warning.
+
 
 =head1 AUTHOR
 
