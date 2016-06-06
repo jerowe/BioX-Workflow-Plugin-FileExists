@@ -48,7 +48,7 @@ __END__
 
 =head1 NAME
 
-BioX::Workflow::Plugin::FileExists
+BioX::Workflow::Plugin::FileExists - a plugin to BioX::Workflow
 
 =head1 SYNOPSIS
 
