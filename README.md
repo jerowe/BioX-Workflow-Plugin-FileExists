@@ -3,6 +3,7 @@
 BioX::Workflow::Plugin::FileDetails - Get metadata for files in directories
 processed by [BioX::Workflow](https://metacpan.org/pod/BioX::Workflow)
 
+
 # SYNOPSIS
 
 List your plugins in your workflow.yml file
