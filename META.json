@@ -4,7 +4,7 @@
       "Jillian Rowe <jillian.e.rowe@gmail.com>"
    ],
    "dynamic_config" : 0,
-   "generated_by" : "Dist::Zilla version 5.041, Dist::Milla version v1.0.15, CPAN::Meta::Converter version 2.150005",
+   "generated_by" : "Dist::Zilla version 5.042, Dist::Milla version v1.0.15, CPAN::Meta::Converter version 2.150005",
    "license" : [
       "perl_5"
    ],
@@ -65,13 +65,13 @@
    "release_status" : "stable",
    "resources" : {
       "bugtracker" : {
-         "web" : "https://bitbucket.org/jerowe/biox-workflow-plugin-filedetails/issues"
+         "web" : "https://bitbucket.org/jerowe/BioX-Workflow-Plugin-FileDetails/issues"
       },
-      "homepage" : "https://bitbucket.org/jerowe/biox-workflow-plugin-filedetails",
+      "homepage" : "https://bitbucket.org/jerowe/BioX-Workflow-Plugin-FileDetails",
       "repository" : {
          "type" : "git",
-         "url" : "git://git@bitbucket.org:jerowe/biox-workflow-plugin-filedetails.git",
-         "web" : "https://bitbucket.org/jerowe/biox-workflow-plugin-filedetails"
+         "url" : "git://git@bitbucket.org:jerowe/BioX-Workflow-Plugin-FileDetails.git",
+         "web" : "https://bitbucket.org/jerowe/BioX-Workflow-Plugin-FileDetails"
       }
    },
    "version" : "0.06"
