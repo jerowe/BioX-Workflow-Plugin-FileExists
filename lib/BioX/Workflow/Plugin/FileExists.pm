@@ -24,8 +24,10 @@ before 'write_process' => sub{
     my $tprocess = "";
     if($input){
         $tprocess .=<<EOF;
-[ -f "$input"  ] || \\{>&2 echo "INPUT $input not found" ; exit 256; \\} && \\
-[ -s "$input"  ] || \\{>&2 echo "INPUT $input is empty";  \\} && \\
+[ -f "$input"  ] || \\{>&2 echo "INPUT: $input not found" ; exit 256; \\} && \\
+[ -s "$input"  ] || \\{>&2 echo "INPUT: $input is empty";  \\} && \\
+touch $input || {>&2 echo "INPUT: $input could not be touched. Please check your file permissions!"; exit 1;\\} && \\
+touch $output || {>&2 echo "OUTPUT: $output could not be touched. Please check your file permissions!"; exit 1;\\} && \\
 EOF
         $tprocess .= $process;
         $process = $tprocess;
