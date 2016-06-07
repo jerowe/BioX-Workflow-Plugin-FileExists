@@ -1,6 +1,7 @@
 Revision history for BioX-Workflow-Plugin-FileExists
 
 {{$NEXT}}
+    - Fixing Version Number mismatch
 
 0.10  2016-06-07 12:29:29 GST
     - New tag
