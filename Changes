@@ -1,6 +1,8 @@
 Revision history for BioX-Workflow-Plugin-FileExists
 
 {{$NEXT}}
+
+0.02  2016-06-07 12:18:48 GST
     - Added a fix for touching files
 
 0.01  2016-06-06 16:07:43 GST
