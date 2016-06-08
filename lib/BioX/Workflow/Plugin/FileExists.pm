@@ -13,9 +13,10 @@ use Moose::Role;
 before 'write_process' => sub{
     my $self = shift;
 
+    print "# In before write process!\n";
     my $process = $self->process;
     chomp($process);
-    $process = $process." && \\\n";
+
     my @input =  $self->local_attr->get_values('INPUT') if $self->local_attr->exists('INPUT');
     my @output =  $self->local_attr->get_values('OUTPUT') if $self->local_attr->exists('OUTPUT');
 
@@ -24,15 +25,20 @@ before 'write_process' => sub{
     my $tprocess = "";
     if($input){
         $tprocess .=<<EOF;
-[ -f "$input"  ] || \\{>&2 echo "INPUT: $input not found" ; exit 256; \\} && \\
-[ -s "$input"  ] || \\{>&2 echo "INPUT: $input is empty";  \\} && \\
-touch $input || {>&2 echo "INPUT: $input could not be touched. Please check your file permissions!"; exit 1;\\} && \\
-touch $output || {>&2 echo "OUTPUT: $output could not be touched. Please check your file permissions!"; exit 1;\\} && \\
+[ -f "$input"  ] || \\{ >&2 echo "INPUT: $input not found" ; exit 256; \\} && \\
+[ -s "$input"  ] || \\{ >&2 echo "INPUT: $input is empty";  \\} && \\
+touch $input || \\{>&2 echo "INPUT: $input could not be touched. Please check your file permissions!"; exit 1; \\} && \\
 EOF
+        if($output){
+        $tprocess .=<<EOF;
+touch $output || \\{>&2 echo "OUTPUT: $output could not be touched. Please check your file permissions!"; exit 1;\\} && \\
+EOF
+        }
         $tprocess .= $process;
         $process = $tprocess;
     }
     if($output){
+        $process = $process." && \\\n";
         $tprocess =<<EOF;
 [ -f "$output"  ] || \\{>&2 echo "OUTPUT $output not found" ;  \\} && \\
 [ -s "$output"  ] || \\{>&2 echo "OUTPUT $output is empty"; \\}
