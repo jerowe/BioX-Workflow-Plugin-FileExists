@@ -15,7 +15,7 @@ If OUTPUT is empty or doesn't exist it will give a warning.
 
 # AUTHOR
 
-Jillian Rowe &lt;jillian.e.rowe@gmail.com>
+Jillian Rowe <jillian.e.rowe@gmail.com>
 
 # COPYRIGHT
 
