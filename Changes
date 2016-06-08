@@ -1,6 +1,8 @@
 Revision history for BioX-Workflow-Plugin-FileExists
 
 {{$NEXT}}
+
+0.13  2016-06-08 12:29:14 GST
     - Fixed error with ""
 
 0.12  2016-06-08 11:43:04 GST
