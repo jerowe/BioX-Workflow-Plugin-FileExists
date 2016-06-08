@@ -13,14 +13,17 @@ use Moose::Role;
 before 'write_process' => sub{
     my $self = shift;
 
-    print "# In before write process!\n";
+    $DB::single=2;
     my $process = $self->process;
-    chomp($process);
 
     my @input =  $self->local_attr->get_values('INPUT') if $self->local_attr->exists('INPUT');
     my @output =  $self->local_attr->get_values('OUTPUT') if $self->local_attr->exists('OUTPUT');
 
     my($input, $output) = ($input[0], $output[0]);
+
+    if(!$input && !$output){
+        return;
+    }
 
     my $tprocess = "";
     if($input){
@@ -38,6 +41,7 @@ EOF
         $process = $tprocess;
     }
     if($output){
+        chomp($process);
         $process = $process." && \\\n";
         $tprocess =<<EOF;
 [ -f "$output"  ] || \\{>&2 echo "OUTPUT $output not found" ;  \\} && \\
@@ -45,6 +49,7 @@ EOF
 EOF
         $process .= $tprocess;
     }
+    $DB::single=2;
     $self->process($process);
 
 };
